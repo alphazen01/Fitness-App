@@ -224,42 +224,51 @@ class _HomeScreenState extends State<HomeScreen> {
       //    ],
       //  ),
        screens.elementAt(selectedIndex),
-        bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          items:[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: "Home",
+        bottomNavigationBar: Transform.translate(
+          offset: Offset(0,-12),
+          child: ClipRRect(
+            borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20)
+            ),
+            child: BottomNavigationBar(
+              type: BottomNavigationBarType.fixed,
+              items:[
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.home),
+                  label: "Home",
+                  
+                  ),
+                  BottomNavigationBarItem(
+                  icon: Icon(Icons.settings),
+                  label: "Settings",  
+                  ),
+                  BottomNavigationBarItem(
+                  icon: Icon(Icons.person),
+                  label: "Profile",
+                  ),
+                   BottomNavigationBarItem(
+                  icon: Icon(Icons.radio_button_checked),
+                  label: "Button",
+                  ),
+              ],
+              currentIndex: selectedIndex,
+              backgroundColor: Colors.black,
+              selectedItemColor: Colors.red,
+              unselectedItemColor: Colors.green,
+              onTap: (int index){
+              //  print(index);
+              setState(() {
+                selectedIndex=index;
+              });
+              },
               
-              ),
-              BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
-              label: "Settings",  
-              ),
-              BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: "Profile",
-              ),
-               BottomNavigationBarItem(
-              icon: Icon(Icons.radio_button_checked),
-              label: "Button",
-              ),
-          ],
-          currentIndex: selectedIndex,
-          backgroundColor: Colors.black,
-          selectedItemColor: Colors.red,
-          unselectedItemColor: Colors.green,
-          onTap: (int index){
-          //  print(index);
-          setState(() {
-            selectedIndex=index;
-          });
-          },
-          
+            ),
+          ),
         ),
     );
   }
 
-  static Contactlist() {}
+ 
 }
 
